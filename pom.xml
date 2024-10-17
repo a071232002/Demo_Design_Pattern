@@ -14,6 +14,21 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    
+    <!-- https://mvnrepository.com/artifact/org.odftoolkit/odftoolkit -->
+		<dependency>
+		    <groupId>org.odftoolkit</groupId>
+		    <artifactId>odftoolkit</artifactId>
+		    <version>0.9.0</version>
+		    <type>pom</type>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.odftoolkit/simple-odf -->
+		<dependency>
+		    <groupId>org.odftoolkit</groupId>
+		    <artifactId>simple-odf</artifactId>
+		    <version>0.9.0</version>
+		</dependency>
+
   </dependencies>
   <build>
     <finalName>B03_Design_Pattern</finalName>
