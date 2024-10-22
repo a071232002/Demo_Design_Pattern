@@ -49,7 +49,7 @@ public class TestOdfOdsExport {
 				Table table = ods.getSheetByName("Sheet1");
 				List<OdfOdsCell> cells = new ArrayList<OdfOdsCell>();
 				
-				String exportDate = DateTimeFormatterUtil.format(LocalDateTime.now(), FormatterPattern.DATE_DASH);
+				String fileNameDateTime = DateTimeFormatterUtil.format(LocalDateTime.now(), FormatterPattern.SECOND);
 				String exportDateTime = DateTimeFormatterUtil.format(LocalDateTime.now(), FormatterPattern.SECOND_DASH);
 				
 				int rowNum = 0;
@@ -118,8 +118,8 @@ public class TestOdfOdsExport {
 					c.write(table);
 				}
 				
-			String directoryPath = "C:/testOds/";
-		    String filePath = directoryPath + exportDate + "_outputFile.ods";
+			String directoryPath = "C:/B03Test/testOds/";
+		    String filePath = directoryPath + fileNameDateTime + "_outputFile.ods";
 		    
 		    File directory = new File(directoryPath);
 		    
