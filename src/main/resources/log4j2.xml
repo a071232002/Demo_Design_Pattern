@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<Appenders>
+		<!-- ConsoleAppender -->
+		<Console name="ConsoleAppender" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="[B03Test][%d{yyyy/MM/dd HH:mm:ss}][%p][%t][%L][%C - %M] %m%n" />
+		</Console>
+
+		<!-- DailyRollingFileAppender 替換為 RollingFileAppender，使用基於時間的滾動策略 -->
+		<RollingFile name="FileAppender"
+			fileName="/B03Test/log4j2/daily/b03.log"
+			filePattern="/B03Test/log4j2/daily/b03-%d{yyyy-MM-dd}.log">
+			<PatternLayout
+				pattern="[B03Test][%d{yyyy/MM/dd HH:mm:ss}][%p][%t][%L][%C - %M] %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile>
+
+		<!-- RollingFileAppender -->
+		<RollingFile name="FileAppender2"
+			fileName="/B03Test/log4j2/b03.log"
+			filePattern="/B03Test/log4j2/b03-%i.log">
+			<PatternLayout
+				pattern="[B03Test][%d{yyyy/MM/dd HH:mm:ss}][%p][%t][%L][%C - %M] %m%n" />
+			<Policies>
+				<SizeBasedTriggeringPolicy size="2MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="3" />
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+		<!-- Root Logger with ConsoleAppender, FileAppender, and FileAppender2 -->
+		<Root level="debug">
+			<AppenderRef ref="ConsoleAppender" />
+			<AppenderRef ref="FileAppender" />
+			<AppenderRef ref="FileAppender2" />
+		</Root>
+		
+		<AsyncLogger name="AsyncLogger" level="info" additivity="false">
+            <AppenderRef ref="ConsoleAppender"/>
+        </AsyncLogger>
+	</Loggers>
+</Configuration>
